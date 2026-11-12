@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 import DownloadButton from './DownloadButton'
 import Reveal, { EASE } from './Reveal'
-import { APP } from '../config'
+import { APP, PLAY_PATH } from '../config'
+import PlayQR from './PlayQR'
 
 // Esto sí es una secuencia: por eso los pasos van numerados.
 const STEPS = [
@@ -59,7 +60,17 @@ export default function Install() {
           </Reveal>
         </div>
 
-        <ol className="lg:col-span-7">
+        <div className="lg:col-span-7">
+        <div className="mb-10 flex flex-col gap-6 rounded-2xl border border-line bg-white p-6 sm:flex-row sm:items-center">
+          <PlayQR />
+          <div>
+            <h3 className="font-display text-xl font-semibold">Versión de navegador</h3>
+            <a href={PLAY_PATH} className="mt-4 inline-flex items-center rounded-full bg-ink px-5 py-3 text-sm font-semibold text-paper hover:bg-blue">
+              Abrir versión web
+            </a>
+          </div>
+        </div>
+        <ol>
           {STEPS.map(({ title, text }, i) => (
             <motion.li
               key={title}
@@ -79,6 +90,7 @@ export default function Install() {
             </motion.li>
           ))}
         </ol>
+        </div>
       </div>
     </section>
   )

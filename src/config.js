@@ -7,6 +7,9 @@
 export const APK_URL = import.meta.env.VITE_APK_URL || '/downloads/SolParaTodos.apk'
 export const APK_FILENAME = 'SolParaTodos.apk'
 
+// Versión web (WebGL) del simulador: vive en public/jugar y se abre en /jugar, aparte de la landing.
+export const PLAY_PATH = '/jugar/'
+
 // Enlaces del footer (créditos)
 export const REPO_URL = 'https://github.com/emigasque13/Proyecto_SolParaTodos_Gasque'
 export const GUIDE_URL = '#guia' // la guía vive en esta misma página
