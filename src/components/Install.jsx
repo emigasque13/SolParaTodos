@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import DownloadButton from './DownloadButton'
 import Reveal, { EASE } from './Reveal'
+import { APP } from '../config'
 
 // Esto sí es una secuencia: por eso los pasos van numerados.
 const STEPS = [
@@ -18,7 +19,7 @@ const STEPS = [
   },
   {
     title: 'Instala y abre Sol Para Todos',
-    text: 'Toca Instalar. Si Play Protect avisa que la app no es conocida, elige instalarla de todos modos. Al abrirla, concede el permiso de cámara para usar la realidad aumentada.',
+    text: 'Toca Instalar. Si Play Protect avisa que la app no es conocida, elige instalarla de todos modos. Al abrirla verás el menú de inicio y podrás entrar a la simulación.',
   },
 ]
 
@@ -29,17 +30,31 @@ const body = { hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0, transiti
 
 export default function Install() {
   return (
-    <section id="instalacion" className="border-t border-line py-20 sm:py-28">
+    <section id="descargar" className="border-t border-line py-20 sm:py-28">
       <div className="mx-auto grid max-w-6xl gap-12 px-5 sm:px-8 lg:grid-cols-12 lg:gap-16">
         {/* Encabezado fijo en escritorio */}
         <div className="lg:col-span-5">
           <Reveal className="lg:sticky lg:top-28">
-            <h2 className="font-display text-3xl font-bold leading-tight tracking-tight sm:text-4xl">Cómo instalarla</h2>
+            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-blue">Descarga</p>
+            <h2 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight sm:text-4xl">Descárgala e instálala</h2>
             <p className="mt-5 max-w-md text-lg leading-relaxed text-slate">
               La app se instala desde un archivo APK. Tarda un par de minutos y no necesitas crear una cuenta.
             </p>
+            <dl className="mt-8 max-w-sm">
+              {[
+                ['Versión', APP.version],
+                ['Tamaño', APP.tamano],
+                ['Requiere', APP.android],
+                ['Costo', APP.precio],
+              ].map(([k, v]) => (
+                <div key={k} className="flex justify-between gap-6 border-t border-ink/15 py-3">
+                  <dt className="text-slate">{k}</dt>
+                  <dd className="text-right font-semibold">{v}</dd>
+                </div>
+              ))}
+            </dl>
             <div className="mt-8">
-              <DownloadButton size="lg" />
+              <DownloadButton size="lg" label="Descargar APK" />
             </div>
           </Reveal>
         </div>

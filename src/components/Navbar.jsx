@@ -4,9 +4,11 @@ import { CloseIcon, MenuIcon, SunMark } from './Icons'
 import DownloadButton from './DownloadButton'
 
 const LINKS = [
-  { href: '#proyecto', label: 'Proyecto' },
-  { href: '#instalacion', label: 'Instalación' },
-  { href: '#requisitos', label: 'Requisitos' },
+  { href: '#que-es', label: '¿Qué es?' },
+  { href: '#partes', label: 'Partes' },
+  { href: '#funciona', label: 'Cómo funciona' },
+  { href: '#simulacion', label: 'Simulación' },
+  { href: '#guia', label: 'Guía' },
   { href: '#creditos', label: 'Créditos' },
 ]
 
@@ -39,7 +41,7 @@ export default function Navbar() {
           </span>
         </a>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Principal">
+        <nav className="hidden items-center gap-6 lg:flex" aria-label="Principal">
           {LINKS.map((l) => (
             <a key={l.href} href={l.href} className="text-sm font-medium text-slate transition-colors hover:text-ink">
               {l.label}
@@ -52,7 +54,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setOpen((o) => !o)}
-            className="grid h-10 w-10 place-items-center rounded-full text-2xl md:hidden"
+            className="grid h-10 w-10 place-items-center rounded-full text-2xl lg:hidden"
             aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
             aria-expanded={open}
           >
@@ -69,7 +71,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="overflow-hidden md:hidden"
+            className="overflow-hidden lg:hidden"
             aria-label="Principal móvil"
           >
             <ul className="px-5 pb-4">

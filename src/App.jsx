@@ -1,12 +1,15 @@
 import { MotionConfig } from 'framer-motion'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import Problem from './components/Problem'
 import Features from './components/Features'
-import LodDemo from './components/LodDemo'
+import Parts from './components/Parts'
+import HowItWorks from './components/HowItWorks'
+import Benefits from './components/Benefits'
+import Simulation from './components/Simulation'
 import Install from './components/Install'
 import Gallery from './components/Gallery'
 import Specs from './components/Specs'
-import FinalCTA from './components/FinalCTA'
 import Footer from './components/Footer'
 
 export default function App() {
@@ -17,12 +20,15 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
+        <Problem />
         <Features />
-        <LodDemo />
+        <Parts />
+        <HowItWorks />
+        <Benefits />
+        <Simulation />
         <Install />
         <Gallery />
         <Specs />
-        <FinalCTA />
       </main>
       <Footer />
     </MotionConfig>

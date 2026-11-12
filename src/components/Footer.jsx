@@ -1,47 +1,74 @@
-import { ACADEMIC, REPO_URL } from '../config'
-import { SunMark } from './Icons'
+import { ACADEMIC, APP, APK_FILENAME, APK_URL, GUIDE_URL, REPO_URL } from '../config'
+import { BookIcon, DownloadIcon, GitHubIcon, SunMark } from './Icons'
 
-// Cada dato del proyecto es un par término/valor (<dl>): semántico y fácil de leer.
-const DATA = [
-  ['Universidad', ACADEMIC.universidad],
-  ['Carrera', ACADEMIC.carrera],
-  ['Materia', ACADEMIC.materia],
-  ['Autor', ACADEMIC.autor],
-  ['Año', ACADEMIC.anio],
-]
+const linkCls = 'inline-flex items-center gap-2.5 text-paper/75 transition-colors hover:text-sun'
 
+// Créditos: tres columnas (proyecto · descarga · enlaces), como en Cenote Vivo.
 export default function Footer() {
   return (
     <footer id="creditos" className="bg-night text-paper">
       <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:px-8 lg:grid-cols-12">
+        {/* Proyecto */}
         <div className="lg:col-span-5">
           <div className="flex items-center gap-3">
             <SunMark className="h-8 w-8" />
             <span className="font-display text-xl font-bold tracking-tight">Sol Para Todos</span>
           </div>
           <p className="mt-5 max-w-sm leading-relaxed text-paper/60">
-            Simulación interactiva en 3D y realidad aumentada de un campo fotovoltaico, hecha con Unity y Blender.
+            Proyecto de {ACADEMIC.materia} realizado por {ACADEMIC.autor}, {ACADEMIC.carrera}. Hecho con Unity 6 y URP,
+            con el modelo del panel en Blender. Profesor: {ACADEMIC.profesor}.
           </p>
-          {REPO_URL && (
-            <a
-              href={REPO_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-5 inline-block text-sm font-semibold underline decoration-paper/30 underline-offset-4 transition-colors hover:decoration-sun"
-            >
-              Ver el código fuente
-            </a>
-          )}
+          <img
+            src="/marista-logo.png"
+            alt="Universidad Marista de Mérida"
+            width="120"
+            height="181"
+            loading="lazy"
+            className="mt-7 h-auto w-24"
+          />
         </div>
 
-        <dl className="grid gap-x-10 gap-y-6 sm:grid-cols-2 lg:col-span-7">
-          {DATA.map(([term, value]) => (
-            <div key={term} className={term === 'Carrera' ? 'sm:col-span-2' : ''}>
-              <dt className="text-sm text-paper/50">{term}</dt>
-              <dd className="mt-1 font-semibold">{value}</dd>
-            </div>
-          ))}
-        </dl>
+        {/* Descarga */}
+        <div className="lg:col-span-4">
+          <h2 className="font-display text-lg font-bold">Descarga</h2>
+          <dl className="mt-5 max-w-xs">
+            {[
+              ['Versión', APP.version],
+              ['Tamaño', APP.tamano],
+              ['Requiere', APP.android],
+            ].map(([k, v]) => (
+              <div key={k} className="grid grid-cols-[5rem_1fr] gap-3 py-1.5 text-sm">
+                <dt className="text-paper/50">{k}</dt>
+                <dd className="font-semibold">{v}</dd>
+              </div>
+            ))}
+          </dl>
+          <a href={APK_URL} download={APK_FILENAME} className={`${linkCls} mt-5 text-sm font-semibold !text-sun/90 hover:!text-sun`}>
+            <DownloadIcon />
+            Descargar APK
+          </a>
+        </div>
+
+        {/* Enlaces */}
+        <div className="lg:col-span-3">
+          <h2 className="font-display text-lg font-bold">Enlaces</h2>
+          <ul className="mt-5 space-y-3 text-sm">
+            {REPO_URL && (
+              <li>
+                <a href={REPO_URL} target="_blank" rel="noreferrer" className={linkCls}>
+                  <GitHubIcon className="text-lg" />
+                  Repositorio en GitHub
+                </a>
+              </li>
+            )}
+            <li>
+              <a href={GUIDE_URL} className={linkCls}>
+                <BookIcon className="text-lg" />
+                Guía del proyecto
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <div className="border-t border-paper/10">

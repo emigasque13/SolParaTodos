@@ -1,6 +1,6 @@
 # Sol Para Todos
 
-Landing page de la simulación 3D y AR de un campo fotovoltaico (Unity + Blender).
+Landing page de la simulación 3D de un campo fotovoltaico para Android (Unity + Blender).
 Proyecto de **Emiliano Gasque**, Ingeniería en Tecnologías Digitales, Universidad Marista de Mérida.
 
 **Stack:** Vite + React 18 + TailwindCSS 3 + Framer Motion.
@@ -16,7 +16,7 @@ Abre la URL que muestra la terminal (normalmente http://localhost:5173).
 
 ## 2. Agregar el APK
 
-Copia tu archivo con este nombre exacto:
+El APK ya está en el proyecto. Si lo actualizas, reemplaza este archivo conservando el nombre:
 
 ```
 public/downloads/SolParaTodos.apk
@@ -32,16 +32,17 @@ Todo lo editable está en un solo archivo:
 | Variable | Qué hace |
 | --- | --- |
 | `APK_URL`, `APK_FILENAME` | Archivo que se descarga |
-| `REPO_URL` | Muestra "Ver el código fuente" en el footer (vacío = oculto) |
+| `REPO_URL`, `GUIDE_URL` | Enlaces del footer (créditos) |
+| `APP` | Versión, tamaño y requisitos que se muestran en la descarga y los créditos |
+| `STATS` | Cifras de la sección «La simulación» |
 | `DEMO_VIDEO_URL` | Reemplaza la ilustración del hero por tu video |
-| `REQUISITOS` | Filas de la sección Requisitos (agrega versión de Android, tamaño del APK...) |
-| `CONTROLES` | Filas de la sección Controles (vacío = sección oculta) |
+| `REQUISITOS`, `CONTROLES` | Filas de la Guía del proyecto |
 | `CAPTURAS` | Capturas de pantalla con pie de foto, en `public/capturas/` (vacío = sección oculta) |
 | `ACADEMIC` | Datos del footer |
 
 ## 4. Inicializar Git y subir a GitHub
 
-Crea primero un repositorio vacío en https://github.com/new llamado `sol-para-todos` (sin README ni .gitignore). Luego:
+Tu remoto actual es `https://github.com/emigasque13/SolParaTodos.git`. Si empiezas de cero, crea un repositorio vacío en https://github.com/new llamado `SolParaTodos` (sin README ni .gitignore). Luego:
 
 ```bash
 git init
@@ -79,16 +80,19 @@ Luego, en Vercel, *Settings → Environment Variables*: agrega `VITE_APK_URL` co
 ```
 src/
   App.jsx                 Orden de las secciones
-  config.js               APK, requisitos, controles, capturas y datos académicos
+  config.js               APK, versión, enlaces, cifras, requisitos y controles
   index.css               Estilos base y botones
   components/
     Navbar.jsx            Header translúcido al hacer scroll
-    Hero.jsx              Título, botones e ilustración
-    SolarField.jsx        Campo solar SVG (los paneles siguen al sol)
-    Features.jsx          Qué puedes hacer
-    LodDemo.jsx           Demo interactivo de niveles de detalle
-    Install.jsx           Pasos de instalación
+    Hero.jsx · SolarField.jsx   Título, botones e ilustración interactiva
+    Problem.jsx           El problema
+    Features.jsx          ¿Qué es? y qué se puede hacer
+    Parts.jsx             Partes del campo (esquema interactivo)
+    HowItWorks.jsx        Cómo funciona, en 4 pasos
+    Benefits.jsx          En qué ayuda y para quién
+    Simulation.jsx · LodDemo.jsx   Explicación de Unity y demo de niveles de detalle
+    Install.jsx           Descarga e instalación
     Gallery.jsx           Capturas (opcional)
-    Specs.jsx             Requisitos y controles
-    FinalCTA.jsx · Footer.jsx · DownloadButton.jsx · Reveal.jsx · Icons.jsx
+    Specs.jsx             Guía del proyecto: controles y requisitos
+    Footer.jsx            Créditos: proyecto · descarga · enlaces
 ```
