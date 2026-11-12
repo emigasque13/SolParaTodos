@@ -7,6 +7,7 @@ const LINKS = [
   { href: '#que-es', label: '¿Qué es?' },
   { href: '#partes', label: 'Partes' },
   { href: '#funciona', label: 'Cómo funciona' },
+  { href: '#capturas', label: 'Galería' },
   { href: '#simulacion', label: 'Simulación' },
   { href: '#guia', label: 'Guía' },
   { href: '#creditos', label: 'Créditos' },
@@ -41,7 +42,7 @@ export default function Navbar() {
           </span>
         </a>
 
-        <nav className="hidden items-center gap-6 lg:flex" aria-label="Principal">
+        <nav className="hidden items-center gap-6 xl:flex" aria-label="Principal">
           {LINKS.map((l) => (
             <a key={l.href} href={l.href} className="text-sm font-medium text-slate transition-colors hover:text-ink">
               {l.label}
@@ -54,7 +55,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setOpen((o) => !o)}
-            className="grid h-10 w-10 place-items-center rounded-full text-2xl lg:hidden"
+            className="grid h-10 w-10 place-items-center rounded-full text-2xl xl:hidden"
             aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
             aria-expanded={open}
           >
@@ -71,7 +72,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="overflow-hidden lg:hidden"
+            className="overflow-hidden xl:hidden"
             aria-label="Principal móvil"
           >
             <ul className="px-5 pb-4">

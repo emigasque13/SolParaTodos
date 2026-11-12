@@ -8,7 +8,7 @@ export const APK_URL = import.meta.env.VITE_APK_URL || '/downloads/SolParaTodos.
 export const APK_FILENAME = 'SolParaTodos.apk'
 
 // Enlaces del footer (créditos)
-export const REPO_URL = 'https://github.com/emigasque13/SolParaTodos'
+export const REPO_URL = 'https://github.com/emigasque13/Proyecto_SolParaTodos_Gasque'
 export const GUIDE_URL = '#guia' // la guía vive en esta misma página
 
 // Video de demostración opcional para el hero (por ejemplo '/demo.mp4' dentro de /public).
@@ -43,9 +43,15 @@ export const STATS = [
   { value: '3', label: 'vistas de cámara' },
 ]
 
-// Capturas de pantalla (opcional). { src: '/capturas/campo.jpg', alt: '...', caption: '...' }
-// Coloca las imágenes en public/capturas/. Con la lista vacía la sección no se muestra.
-export const CAPTURAS = []
+// Capturas de pantalla de la app (public/capturas/). Con la lista vacía la sección no se muestra.
+export const CAPTURAS = [
+  { src: '/capturas/01_menu.jpg', alt: 'Menú de inicio de Sol Para Todos sobre el campo solar', caption: 'Menú de inicio' },
+  { src: '/capturas/02_panoramica.jpg', alt: 'Vista panorámica del campo solar con el panel de datos desplegado', caption: 'Vista 1: panorámica del campo, con los datos en vivo' },
+  { src: '/capturas/03_detalle_panel.jpg', alt: 'Detalle de los paneles y sus celdas', caption: 'Vista 2: detalle de los paneles y sus celdas' },
+  { src: '/capturas/04_recorrido.jpg', alt: 'Recorrido a nivel del suelo entre dos filas de paneles', caption: 'Vista 3: recorrido entre las filas con joystick' },
+  { src: '/capturas/05_noche.jpg', alt: 'Campo solar en modo Crepúsculo con luces azules', caption: 'Modo Crepúsculo: las luces dibujan la silueta del campo' },
+  { src: '/capturas/06_fichas.jpg', alt: 'Ventana de fichas técnicas sobre las celdas fotovoltaicas', caption: 'Fichas técnicas: celdas, estructura y optimización' },
+]
 
 // Requisitos para la guía
 export const REQUISITOS = [

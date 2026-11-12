@@ -21,10 +21,10 @@ export default function Footer() {
           <img
             src="/marista-logo.png"
             alt="Universidad Marista de Mérida"
-            width="120"
-            height="181"
+            width="588"
+            height="251"
             loading="lazy"
-            className="mt-7 h-auto w-24"
+            className="mt-7 h-auto w-56 max-w-full"
           />
         </div>
 

@@ -24,10 +24,10 @@ export default function App() {
         <Features />
         <Parts />
         <HowItWorks />
+        <Gallery />
         <Benefits />
         <Simulation />
         <Install />
-        <Gallery />
         <Specs />
       </main>
       <Footer />
